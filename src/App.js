@@ -1,11 +1,13 @@
 
 import './App.scss';
-import Register from './components/Register';
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
 
 function App() {
   return (
     <main className="App">
-      <Register />
+      <Register/>
+      <Login />
     </main>
   );
 }

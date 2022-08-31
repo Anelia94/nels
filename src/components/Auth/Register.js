@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import './Register.scss';
+import '../Auth/Auth.scss';
 
 const USER_REGEX = /^[A-Za-z][A-Za-z0-9-_]{3,24}$/;
 const PWD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,24}$/;
@@ -142,9 +142,9 @@ const Register = () => {
                         Sign Up
                     </button>
                 </form>
-                <p className="sign-in">
+                <p className="line">
                     Already registered?<br/>
-                    <span className="line">
+                    <span>
                         <a href="#">Sign in</a>
                     </span>
                 </p>
