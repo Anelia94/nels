@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 
 import './Header.scss';
 
 const Header = () => {
+    const { value, setValue } = useContext(UserContext);
+
     const userNavigation = (
         <>
-            <li className='nav-link'><Link className='link' to={`/my-profile`}>My Profile</Link></li>
             <li className='nav-link'><Link className='link' to="/logout">Logout</Link></li>
         </>
     )
@@ -23,7 +26,7 @@ const Header = () => {
                     <li className="nav-links"><Link to="/home" className="links">Home</Link></li>
                 </div>
                 <div className="wrapper">
-                    {guestNavigation}
+                    {value ? userNavigation : guestNavigation}
                 </div>
             </ul>
         </nav>

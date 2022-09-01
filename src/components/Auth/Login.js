@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 import '../Auth/Auth.scss';
+import Home from '../Home';
 
 const Login = () => {
+    const { value, setValue } = useContext(UserContext);
     const userRef = useRef();
     const errRef = useRef();
 
@@ -22,20 +25,15 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user, pwd);
         setUser('');
         setPwd('');
         setSuccess(true);
+        const loggedUser = { user, pwd };
+        setValue(loggedUser);
     }
 
     return (<>
-        {success ? (<section>
-            <h1>You are logged in!</h1>
-            <br />
-            <p>
-                <a href="#">Go to Home</a>
-            </p>
-        </section>) : (<section>
+        {success ? (<Home/>) : (<section>
             <p ref={errRef}
                 className={errMsg ? "errmsg" : "offscreen"}>{errMsg}</p>
             <h1>Sign In</h1>
@@ -61,12 +59,11 @@ const Login = () => {
             <p className='line'>
                 Need an Account?<br />
                 <span>
-                    <a href='#'>Sign up</a>
+                    <a href='/register'>Sign up</a>
                 </span>
             </p>
         </section>)}
-    </>
-    );
+    </>);
 }
 
 export default Login;
