@@ -1,13 +1,10 @@
-
-import './App.scss';
-import Register from './components/Auth/Register';
-import Login from './components/Auth/Login';
+import Header from './components/Header';
 
 function App() {
+  
   return (
     <main className="App">
-      <Register/>
-      <Login />
+     <Header/>
     </main>
   );
 }
